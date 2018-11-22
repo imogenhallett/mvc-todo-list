@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slim to-do list</title>
+</head>
+<body>
+    <form method="post" action="todo-insert">
+        <input type="text" name="newToDo" value="Add new to-do"/>
+        <input type="submit" value="Submit"/>
+
+    </form>
+
+    <h2>Pending to-do tasks</h2>
+    <form method="post" action="todo-update">
+        <?php
+            echo ToDo\ViewHelpers\PendingToDoViewHelper::outputPendingToDos($pending);
+        ?>
+    </form>
+
+    <h2>Done to-do tasks</h2>
+    <?php
+    echo ToDo\ViewHelpers\DoneToDoViewHelper::outputDoneToDos($done);
+    ?>
+
+</body>
+</html>
